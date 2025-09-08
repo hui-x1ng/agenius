@@ -66,22 +66,26 @@ Upload your question files to S3 in the following JSON format:
 {
   "questions": [
     {
-      "id": "calc_001",
-      "question": "Find the derivative of f(x) = x³ + 2x² - 5x + 3",
+      "id": "LIMIT_001",
+      "question": "Evaluate lim(x->0) (sin(3x) - 3x) / x^3 using Taylor series expansion",
       "standard_solution": {
-        "answer": "3x² + 4x - 5",
+        "answer": "-9/2",
         "steps": [
-          "Apply power rule to each term",
-          "d/dx(x³) = 3x²",
-          "d/dx(2x²) = 4x",
-          "d/dx(-5x) = -5",
-          "d/dx(3) = 0"
+          "Recall sin(3x) = 3x - (3x)^3/3! + (3x)^5/5! - ... = 3x - 27x^3/6 + 243x^5/120 - ...",
+          "Simplify: sin(3x) = 3x - (9/2)x^3 + (81/40)x^5 - ...",
+          "Compute numerator: sin(3x) - 3x = - (9/2)x^3 + (81/40)x^5 - ...",
+          "Divide by x^3: [sin(3x) - 3x]/x^3 = -9/2 + (81/40)x^2 - ...",
+          "Take limit as x->0: -9/2 + 0 - ... = -9/2"
         ]
       },
-      "difficulty_level": "intermediate",
-      "estimated_time_minutes": 3
-    }
-  ]
+      "extended_solution": {
+        "answer": "This limit demonstrates the use of Taylor series for evaluating limits that would otherwise be indeterminate (0/0 form). The Taylor expansion provides more information than L'Hopital's rule in this case, as it shows the behavior of the function near zero. The result -9/2 indicates the curvature of the function y = sin(3x) - 3x near x = 0, which is important in oscillation theory and approximation methods.",
+        "concepts": ["Taylor series", "Limits", "Trigonometric functions", "Indeterminate forms"],
+        "applications": ["Physics: small angle approximations", "Engineering: vibration analysis", "Computer graphics: curve rendering"]
+      },
+      "difficulty_level": "advanced",
+      "estimated_time_minutes": 8
+    },
 }
 ```
 
@@ -132,11 +136,7 @@ ai-math-tutoring-system/
 ├── main.py                 # Main application file
 ├── .env                    # Environment configuration
 ├── requirements.txt        # Python dependencies
-├── README.md              # This file
-├── ARCHITECTURE.md        # Technical architecture document
-└── data/                  # Sample question data (optional)
-    ├── calculus_questions.json
-    └── linear_algebra_questions.json
+└── README.md              # This file
 ```
 
 ## 🎯 Usage
