@@ -1,0 +1,18 @@
+# Web Framework
+streamlit>=1.28.0
+
+# AWS SDK
+boto3>=1.34.0
+botocore>=1.34.0
+
+# Configuration Management
+python-dotenv>=1.0.0
+
+# Python Standard Library (for documentation purposes)
+# The following are built-in modules, no installation required:
+# - json: JSON data handling
+# - os: Operating system interface
+# - random: Random number generation
+# - datetime: Date and time utilities
+# - dataclasses: Data class decorator (Python 3.7+)
+# - typing: Type hints support
